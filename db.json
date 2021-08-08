@@ -1,0 +1,29 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Moradia",
+      "description": "Pagamentos de contas da casa"
+    },
+    {
+      "id": 2,
+      "name": "Saúde",
+      "description": "Plano de saúde e farmácia"
+    },
+    {
+      "id": 3,
+      "name": "Lazer",
+      "description": "Praias, parques, cinema"
+    },
+    {
+      "id": 4,
+      "name": "Salário",
+      "description": "Recebimento de salário"
+    },
+    {
+        "id": 5,
+        "name": "Freelas",
+        "description": "Projetos voltados para o mercado financeiro"
+    }
+  ]
+}
