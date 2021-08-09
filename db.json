@@ -21,9 +21,9 @@
       "description": "Recebimento de salário"
     },
     {
-        "id": 5,
-        "name": "Freelas",
-        "description": "Projetos voltados para o mercado financeiro"
+      "id": 5,
+      "name": "Freelas",
+      "description": "Projetos voltados para o mercado financeiro"
     }
   ]
 }
