@@ -30,17 +30,20 @@
     <tbody>
         <tr *ngFor="let entry of entries">
             <td>
-                <strong> {{ entry.name }} </strong><br>
-                <strong class="text-success"> {{ entry.date }} </strong><br>
+                <p>
+                    <strong> {{ entry.name }} </strong>
+                </p>
+                <p>
+                    <strong class="text-success"> {{ entry.date }} </strong>
+                </p>
                 <small *ngIf="entry.description"> {{ entry.description }}</small>
             </td>
             <td>
                 {{ entry.category.name }}
             </td>
             <td class="text-right">
-               <strong [class.text-success]="entry.type == 'revenue'"  [class.text-danger]="entry.type == 'expense'">
-                {{ entry.amount }}
-                <br>
+                <strong [class.text-success]="entry.type == 'revenue'"  [class.text-danger]="entry.type == 'expense'">
+                <p> {{ entry.amount }} </p>
                 <span class="badge badge-light"> {{ entry.paidText }} </span>
                </strong>
             </td>
