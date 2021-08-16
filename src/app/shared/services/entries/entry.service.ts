@@ -2,17 +2,21 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, flatMap } from 'rxjs/operators';
 
 import { environment } from 'src/environments/environment';
 import { Entry } from '../../models/entry.model';
+
+import { CategoryService } from '../category/category.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EntryService {
 
-    constructor(private http: HttpClient) { }
+    constructor(
+        private http: HttpClient,
+        private categoryService: CategoryService) { }
 
     getAll = (): Observable<Entry[]> => this.http.get<Entry[]>(`${environment.api}entries`).pipe(
         catchError(this.handleError),
@@ -28,18 +32,30 @@ export class EntryService {
     }
 
     create(entry: Entry): Observable<Entry> {
-        return this.http.post(`${environment.api}entries`, entry).pipe(
-            catchError(this.handleError),
-            map(this.jsonDataToEntry)
+        return this.categoryService.getById(entry.categoryId).pipe(
+            flatMap(category => {
+                entry.category = category;
+
+                return this.http.post(`${environment.api}entries`, entry).pipe(
+                    catchError(this.handleError),
+                    map(this.jsonDataToEntry)
+                )
+            })
         )
     }
 
     update(entry: Entry): Observable<Entry> {
         const url = `${environment.api}entries/${entry.id}`;
 
-        return this.http.put(url, entry).pipe(
-            catchError(this.handleError),
-            map(() => entry)
+        return this.categoryService.getById(entry.categoryId).pipe(
+            flatMap(category => {
+                entry.category = category;
+
+                return this.http.put(url, entry).pipe(
+                    catchError(this.handleError),
+                    map(() => entry)
+                )
+            })
         )
     }
 

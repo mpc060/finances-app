@@ -30,17 +30,17 @@
     {
       "id": 1,
       "name": "Gás de Cozinha",
+      "description": "Qualquer descrição para essa despesa",
+      "type": "expense",
+      "amount": "70,80",
+      "date": "14/10/2018",
+      "paid": true,
       "categoryId": 1,
       "category": {
         "id": 1,
         "name": "Moradia",
         "description": "Pagamentos de contas da casa"
-      },
-      "paid": true,
-      "date": "14/10/2018",
-      "amount": "70,80",
-      "type": "expense",
-      "description": "Qualquer descrição para essa despesa"
+      }
     },
     {
       "id": 2,
@@ -115,16 +115,16 @@
     {
       "id": 11,
       "name": "Uber",
-      "categoryId": 2,
-      "category": {
-        "id": 4,
-        "name": "Salário",
-        "description": "Recebimento de salário"
-      },
-      "paid": true,
-      "date": "17/10/2018",
+      "type": "expense",
       "amount": "30,00",
-      "type": "expense"
+      "date": "17/10/2018",
+      "paid": true,
+      "categoryId": "3",
+      "category": {
+        "id": 3,
+        "name": "Lazer",
+        "description": "Praias, parques, cinema"
+      }
     },
     {
       "id": 12,
@@ -260,7 +260,12 @@
       "amount": "1600,00",
       "date": "15/08/2021",
       "paid": true,
-      "categoryId": "1"
+      "categoryId": "1",
+      "category": {
+        "id": 1,
+        "name": "Moradia",
+        "description": "Pagamentos de contas da casa"
+      }
     }
   ]
 }

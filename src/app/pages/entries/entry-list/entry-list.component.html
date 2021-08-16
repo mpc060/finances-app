@@ -38,12 +38,12 @@
                 </p>
                 <small *ngIf="entry.description"> {{ entry.description }}</small>
             </td>
-            <td>
-                {{ entry.category.name }}
+            <td> 
+                {{ entry.category?.name }}
             </td>
             <td class="text-right">
                 <strong [class.text-success]="entry.type == 'revenue'"  [class.text-danger]="entry.type == 'expense'">
-                <p> {{ entry.amount }} </p>
+                <p> {{ entry.amount }} </p> 
                 <span class="badge badge-light"> {{ entry.paidText }} </span>
                </strong>
             </td>
